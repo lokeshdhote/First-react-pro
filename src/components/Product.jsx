@@ -39,8 +39,8 @@ return (
               </div>
              </Link>
              <div className="w-full h-[3vw] flex items-enter justify-around pb-[1vw]">
-              <h3>₹{item.price}</h3>
-<h4><i onClick={()=>dataLike(item.id)} className="ri-heart-3-line cursor-pointer"></i></h4>
+              <h3 className="text-[1.5vw]">₹{item.price}</h3>
+<h4><i onClick={()=>dataLike(item.id)} className="ri-heart-3-line text-[1.4vw] cursor-pointer"></i></h4>
              </div>
             
             
