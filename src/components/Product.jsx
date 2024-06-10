@@ -8,7 +8,8 @@ import { asynclike } from "../store/Actions/productAction.jsx";
 const Product = ()=>{
 const disptach = useDispatch()
   const {product} = useSelector((state)=> state.productReducer)
-
+  const {like} = useSelector((state)=> state.productReducer)
+console.log(like);
 const dataLike = (id)=>{
    
   disptach(asynclike(id))
@@ -26,8 +27,8 @@ return (
       {product && product.length > 0 ? (
           product.map((item, index) => {
             return(
-              <div className="w-[20vw] h-[20vw] flex flex-col  rounded bg-white ">
-            <Link key={index}  to={`/product/${item.id}`} >
+              <div key={index} className="w-[20vw] h-[20vw] flex flex-col  rounded bg-white ">
+            <Link   to={`/product/${item.id}`} >
              <div className="w-[20vw] h-[17vw] flex flex-col justify-between"  >
              <div className="w-full h-[12vw] flex items-center justify-center pb-[1vw] ">
                <img className="w-full h-[10vw] object-contain"  src={item.image} alt="" />
@@ -38,9 +39,18 @@ return (
               </div>
               </div>
              </Link>
-             <div className="w-full h-[3vw] flex items-enter justify-around pb-[1vw]">
+             <div className="w-full h-[3vw] flex items-enter justify-around ">
               <h3 className="text-[1.5vw]">₹{item.price}</h3>
-<h4><i onClick={()=>dataLike(item.id)} className="ri-heart-3-line text-[1.4vw] cursor-pointer"></i></h4>
+<h4>
+{like.includes(item.id) ? (<> <i onClick={()=>dataLike(item.id)} className="ri-heart-3-fill text-red-500 text-2xl cursor-pointer">  </i></>)
+:
+(<> <i onClick={()=>dataLike(item.id)} className="ri-heart-3-line text-2xl  bcursor-pointer">  </i></>)}
+ 
+
+
+
+
+  </h4>
              </div>
             
             

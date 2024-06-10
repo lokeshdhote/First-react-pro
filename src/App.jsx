@@ -10,9 +10,9 @@ function App() {
 
  
 
-  const dispatch= useDispatch()
+  const dispatch = useDispatch()
   dispatch(productsLoad())
-  dispatch(asyncload())
+  // dispatch(asyncload())
   
   return (
    <div  >

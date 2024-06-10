@@ -7,9 +7,9 @@ import {  productsLike, productsLoad } from "../Reducers/productSlice.jsx";
 import axios from "axios";
 export const asyncload = () => async (dispatch, getState)=>{
     try {
-        const  response = await axios.get("https://fakestoreapi.com/products");
+        // const  response = await axios.get("https://fakestoreapi.com/products");
 
-        dispatch( productsLoad(response.data))
+        // dispatch( productsLoad(response.data))
 
         
       
