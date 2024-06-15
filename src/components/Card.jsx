@@ -1,0 +1,55 @@
+import { useDispatch, useSelector } from "react-redux"
+
+import { asynclike } from "../store/Actions/productAction.jsx";
+import { Link } from "react-router-dom";
+
+
+
+const Card = ({product,like})=>{
+    const disptach = useDispatch()
+   
+  const dataLike = (id)=>{
+     
+    disptach(asynclike(id))
+  }
+    return(
+    <div className="  flex gap-[2vw] flex-wrap items-center overflow-x-hidden px-[3vw]" >
+        {product && product.length > 0 ? (
+            product.map((item, index) => {
+              return(
+                <div key={index} className="w-[20vw] h-[20vw] flex flex-col  rounded bg-white ">
+              <Link   to={`/product/${item.id}`} >
+               <div className="w-[20vw] h-[17vw] flex flex-col justify-between"  >
+               <div className="w-full h-[12vw] flex items-center justify-center pb-[1vw] ">
+                 <img className="w-full h-[10vw] object-contain"  src={item.image} alt="" />
+               </div>
+            
+               <div>
+                <h2 className="text-[1vw] pl-[1vw]  ">{item.title}</h2>
+                </div>
+                </div>
+               </Link>
+               <div className="w-full h-[3vw] flex items-enter justify-around ">
+                <h3 className="text-[1.5vw]">₹{item.price}</h3>
+  <h4>
+  {like.includes(item.id) ? (<> <i onClick={()=>dataLike(item.id)} className="ri-heart-3-fill text-red-500 text-2xl cursor-pointer">  </i></>)
+  :
+  (<> <i onClick={()=>dataLike(item.id)} className="ri-heart-3-line text-2xl  bcursor-pointer">  </i></>)}
+  
+    </h4>
+               </div>
+              
+              
+               </div>
+             
+              )
+            })
+        ) : (
+            <p>No products available</p>
+        )}
+        </div>)
+}
+export default Card
+
+
+

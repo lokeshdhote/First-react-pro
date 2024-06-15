@@ -48,6 +48,7 @@ const dataLike = (id)=>{
   <div className="w-[60%] h-[30vw]  flex flex-col items-center pt-[5vw] gap-[4vw]  "    >
  <p className="text-white w-[30vw] "><li>{data.description}</li> </p>
  <h6 className="text-stone-200 text-xl "> Rating : {data.rating.rate} </h6>
+ <h3  className="text-stone-300 text-2xl cursor-pointer  active:font-[300] active:text-gray-200 ">Add to  Cart</h3>
   </div>
 </div>
 

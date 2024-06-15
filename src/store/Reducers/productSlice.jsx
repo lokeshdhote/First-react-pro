@@ -243,7 +243,8 @@ const  initialState ={
         }
     }
 ],
-   like:[]
+   like:[],
+   cart:[],
 }
 export const productSlice = createSlice({
     name:"product",
