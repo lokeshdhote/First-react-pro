@@ -24,13 +24,13 @@ const About = ()=>{
     <input type="text" placeholder="phone Number" className="w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw] " />
     <input type="text" placeholder="category" className="w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw] " />
     <textarea name="address" id="" placeholder="address" className="w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw]  "></textarea>
-    <button className=" text-lg px-[2vw] py-[0.5vw] rounded bg-stone-500 active:scale-[0.93] " >Edit</button>
+    <button className=" text-lg px-[2vw] py-[0.5vw] rounded bg-stone-400 active:scale-[0.93] " >Edit</button>
 </div>
                 </div>
                 <div className="w-[60%] h-full ">
 <div className="flex flex-col  gap-[2vw] pl-[5vw] pt-[5vw]">
-    <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Cart</h2>
-    <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Order</h2>
+   <Link to={"/cart"} ><h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Cart</h2></Link> 
+   <Link to={"/order"}> <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Order</h2></Link>
 <Link to={"/Wishlist"}>    <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Wishlist</h2></Link>
     <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Help us</h2>
     <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Delete Account</h2>

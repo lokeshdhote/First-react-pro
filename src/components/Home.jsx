@@ -21,7 +21,7 @@ return(
   </div>
   <div className="min-w-screen ">
     <h1 className=" text-center   text-[1.5vw] text-neutral-300">
-    'Discover Exclusive Deals and Unique Finds - Shop Smarter, Live Better with productor!'
+    'Discover Exclusive Deals and Unique Finds - Shop Smarter, Live Better with ShopWave !'
     </h1>
   </div>
 </div>

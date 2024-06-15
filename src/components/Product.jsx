@@ -16,6 +16,7 @@ console.log(like);
 
 return (
   <div className="min-w-screen min-h-screen bg-emerald-700  ">
+  
   <Nav/>
   {/* w-screen   pl-[4vw]   flex items-center  */}
   

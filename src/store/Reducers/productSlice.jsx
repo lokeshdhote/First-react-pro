@@ -255,7 +255,6 @@ export const productSlice = createSlice({
         },
         productsLike:(state,action)=>{
            
-            // console.log(state.like.indexOf(action.payload));
     if(state.like.indexOf(action.payload)==-1){
          state.like.push(action.payload)
          
@@ -263,10 +262,22 @@ export const productSlice = createSlice({
       else{
         state.like.splice(state.like.indexOf(action.payload) ,1)
       }
+        },
+        productsCart:(state,action)=>{
+          
+
+    if(state.cart.indexOf(action.payload)==-1){
+        state.cart.push(action.payload)
+        
+       }
+     else{
+       state.cart.splice(state.cart.indexOf(action.payload) ,1)
+     }  
         }
+
     }
 
 })
 
 export default productSlice.reducer
-export const { productsLoad,productsLike} =productSlice.actions
+export const { productsLoad,productsLike, productsCart} =productSlice.actions

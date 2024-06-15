@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom"
-import { asynclike } from "../store/Actions/productAction";
+import { asynccart, asynclike } from "../store/Actions/productAction";
 
 const Details = ()=>{
   const {id} =useParams()
@@ -13,11 +13,16 @@ const dataLike = (id)=>{
    
   dispatch(asynclike(id))
 }
+const dataCart = (id)=>{
+   
+  dispatch(asynccart(id))
+}
+
 
     return(
       <div className="w-screen min-h-screen bg-emerald-700  text-">
    <div className="w-screen h-[4vw]  pl-[4vw]   pt-[2vw] flex items-center " >
-   <Link to={"/"} className="   text-white text-2xl  " >     <i class="ri-arrow-left-line"></i></Link>
+   <Link to={"/"} className="   text-white text-2xl  " >     <i className="ri-arrow-left-line"></i></Link>
    </div>
 
    <div className=" w-screen h-[40vw] pt-[4vw] overflow-hidden">
@@ -39,7 +44,7 @@ const dataLike = (id)=>{
 </div>
 <div>  {like.includes(data.id) ? (<> <i onClick={()=>dataLike(data.id)} className="ri-heart-3-fill text-red-500 text-2xl cursor-pointer">  </i></>)
 :
-(<> <i onClick={()=>dataLike(data.id)} className="ri-heart-3-line text-2xl  bcursor-pointer">  </i></>)}
+(<> <i onClick={()=>dataLike(data.id)} className="ri-heart-3-line text-2xl  cursor-pointer">  </i></>)}
 
 </div>
   </div>
@@ -48,7 +53,12 @@ const dataLike = (id)=>{
   <div className="w-[60%] h-[30vw]  flex flex-col items-center pt-[5vw] gap-[4vw]  "    >
  <p className="text-white w-[30vw] "><li>{data.description}</li> </p>
  <h6 className="text-stone-200 text-xl "> Rating : {data.rating.rate} </h6>
- <h3  className="text-stone-300 text-2xl cursor-pointer  active:font-[300] active:text-gray-200 ">Add to  Cart</h3>
+
+ <Link   to={`/cart/${data.id}`} >
+ <div className="w-[10vw] h-[3vw] bg-red-200 rounded flex items-center justify-center  cursor-pointer active:scale-[0.98] " >
+   <h4 onClick={()=>dataCart(data.id)} className="text-lg">Add to cart</h4>
+ </div>
+</Link>
   </div>
 </div>
 

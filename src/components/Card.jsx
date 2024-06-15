@@ -13,7 +13,7 @@ const Card = ({product,like})=>{
     disptach(asynclike(id))
   }
     return(
-    <div className="  flex gap-[2vw] flex-wrap items-center overflow-x-hidden px-[3vw]" >
+    <div className="  flex gap-[2vw] flex-wrap items-center px-[3vw]" >
         {product && product.length > 0 ? (
             product.map((item, index) => {
               return(
@@ -45,7 +45,7 @@ const Card = ({product,like})=>{
               )
             })
         ) : (
-            <p>No products available</p>
+            <h4 className="text-2xl ">No products available !</h4>
         )}
         </div>)
 }

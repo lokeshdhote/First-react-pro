@@ -7,8 +7,9 @@ const  wishlist = ()=>{
     const {like} = useSelector((state)=> state.productReducer)
    
     const {product} = useSelector((state)=> state.productReducer)
+
 let likeProduct =[]
-// console.log(likeProduct);
+
 for (let i = 0; i < like.length; i++) {
     const element = like[i];
    likeProduct.push(product.find((e)=> e.id == element)) 
