@@ -18,10 +18,10 @@ const Card = ({product,like})=>{
             product.map((item, index) => {
               return(
                 <div key={index} className="w-[20vw] h-[20vw] flex flex-col  rounded bg-white ">
-              <Link   to={`/product/${item.id}`} >
+              <Link   to={`/product/${item._id}`} >
                <div className="w-[20vw] h-[17vw] flex flex-col justify-between"  >
                <div className="w-full h-[12vw] flex items-center justify-center pb-[1vw] ">
-                 <img className="w-full h-[10vw] object-contain"  src={item.image} alt="" />
+                 <img className="w-full h-[10vw] object-contain"  src={item.img} alt="" />
                </div>
             
                <div>
@@ -34,7 +34,7 @@ const Card = ({product,like})=>{
   <h4>
   {like.includes(item.id) ? (<> <i onClick={()=>dataLike(item.id)} className="ri-heart-3-fill text-red-500 text-2xl cursor-pointer">  </i></>)
   :
-  (<> <i onClick={()=>dataLike(item.id)} className="ri-heart-3-line text-2xl  bcursor-pointer">  </i></>)}
+  (<> <i onClick={()=>dataLike(item.id)} className="ri-heart-3-line text-2xl  cursor-pointer">  </i></>)}
   
     </h4>
                </div>

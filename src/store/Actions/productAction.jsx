@@ -3,8 +3,8 @@
 export {  productsLoad } from "../Reducers/productSlice.jsx";
 
 import { useState } from "react";
-import {  productsLike, productsLoad,productsCart } from "../Reducers/productSlice.jsx";
-import axios from "axios";
+import {  productsLike, productsLoad,productsCart , singleProduct} from "../Reducers/productSlice.jsx";
+import axios from "../../util/axios.jsx";
 export const asyncload = () => async (dispatch, getState)=>{
     try {
         // const  response = await axios.get("https://fakestoreapi.com/products");
@@ -40,3 +40,25 @@ export const asynccart = (id) => async (dispatch, getState)=>{
     }
 
 }
+
+export const getProduct = ()=>async(dispatch, getState)=>{
+    try {
+      const {data} = await axios.get("/products")
+
+  dispatch(productsLoad(data))
+    
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  export const getSingleProduct = (id)=>async(dispatch, getState)=>{
+    try {
+      const {data} = await axios.get(`/detail/${id}`)
+   dispatch( singleProduct(data))
+    
+    } catch (error) {
+      console.log(error);
+    }
+
+  }

@@ -2,17 +2,26 @@
 
 import Nav from "./Nav.jsx"
 import Card from "./Card.jsx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { useEffect } from "react";
+import { getProduct } from "../store/Actions/productAction.jsx";
 // import { productsLike } from "../store/Reducers/productSlice.jsx";
 
 
-
 const Product = ()=>{
+  const dispatch = useDispatch(); 
 
   const {product} = useSelector((state)=> state.productReducer)
-  const {like} = useSelector((state)=> state.productReducer)
-console.log(like);
+const {like} = useSelector((state)=> state.productReducer)
 
+
+
+  useEffect(() => {
+    dispatch(getProduct())
+
+  }, [dispatch])
+  
 
 return (
   <div className="min-w-screen min-h-screen bg-emerald-700  ">
