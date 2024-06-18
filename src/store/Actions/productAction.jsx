@@ -3,7 +3,7 @@
 export {  productsLoad } from "../Reducers/productSlice.jsx";
 
 import { useState } from "react";
-import {  productsLike, productsLoad,productsCart , singleProduct,Productlike,LoginUser} from "../Reducers/productSlice.jsx";
+import {  productsLike, productsLoad,productsCart , singleProduct,Productlike,LoginUser, resgistedin} from "../Reducers/productSlice.jsx";
 import axios from "../../util/axios.jsx";
 export const asyncload = () => async (dispatch, getState)=>{
     try {
@@ -98,7 +98,7 @@ export const getProduct = ()=>async(dispatch, getState)=>{
     try {
       const {data} = await axios.post("/register",registeruser)
      
-   dispatch( resgistedin(data))
+   dispatch(resgistedin(data))
     
     } catch (error) {
       console.log(error);

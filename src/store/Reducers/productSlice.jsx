@@ -56,4 +56,4 @@ export const productSlice = createSlice({
 })
 
 export default productSlice.reducer
-export const { productsLoad,productsLike, productsCart, singleProduct,Productlike,LoginUser} =productSlice.actions
+export const { productsLoad,productsLike, productsCart, singleProduct,Productlike,LoginUser,  resgistedin} =productSlice.actions
