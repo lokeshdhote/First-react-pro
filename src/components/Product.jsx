@@ -13,6 +13,7 @@ const Product = ()=>{
   const dispatch = useDispatch(); 
 
   const {product} = useSelector((state)=> state.productReducer)
+  
 const {like} = useSelector((state)=> state.productReducer)
 
 

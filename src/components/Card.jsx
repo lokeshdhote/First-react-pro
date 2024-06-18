@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 
-import { asynclike } from "../store/Actions/productAction.jsx";
+import { asynclike, likeProduct } from "../store/Actions/productAction.jsx";
 import { Link } from "react-router-dom";
 
 
@@ -10,7 +10,7 @@ const Card = ({product,like})=>{
    
   const dataLike = (id)=>{
      
-    disptach(asynclike(id))
+    disptach(likeProduct(id))
   }
     return(
     <div className="  flex gap-[2vw] flex-wrap items-center px-[3vw]" >
@@ -32,9 +32,9 @@ const Card = ({product,like})=>{
                <div className="w-full h-[3vw] flex items-enter justify-around ">
                 <h3 className="text-[1.5vw]">₹{item.price}</h3>
   <h4>
-  {like.includes(item.id) ? (<> <i onClick={()=>dataLike(item.id)} className="ri-heart-3-fill text-red-500 text-2xl cursor-pointer">  </i></>)
+  {/* {like.includes(item._id) ? (<> <i onClick={()=>dataLike(item._id)} className="ri-heart-3-fill text-red-500 text-2xl cursor-pointer">  </i></>)
   :
-  (<> <i onClick={()=>dataLike(item.id)} className="ri-heart-3-line text-2xl  cursor-pointer">  </i></>)}
+  (<> <i onClick={()=>dataLike(item._id)} className="ri-heart-3-line text-2xl  cursor-pointer">  </i></>)} */}
   
     </h4>
                </div>

@@ -13,7 +13,7 @@ const Details = () => {
 
   const { data } = useSelector((state) => state.productReducer);
   console.log(data);
-  const { like } = useSelector((state) => state.productReducer);
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSingleProduct(id));

@@ -2,8 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const  initialState ={
    product:[],
-   like:[],
-   cart:[],
+  
 }
 export const productSlice = createSlice({
     name:"product",
@@ -13,35 +12,48 @@ export const productSlice = createSlice({
            state.product = action.payload
         //    state.product.push(action.payload)
         },
-        productsLike:(state,action)=>{
+    //     productsLike:(state,action)=>{
            
-    if(state.like.indexOf(action.payload)==-1){
-         state.like.push(action.payload)
+    // if(state.like.indexOf(action.payload)==-1){
+    //      state.like.push(action.payload)
          
-        }
-      else{
-        state.like.splice(state.like.indexOf(action.payload) ,1)
-      }
-        },
-        productsCart:(state,action)=>{
+    //     }
+    //   else{
+    //     state.like.splice(state.like.indexOf(action.payload) ,1)
+    //   }
+    //     },
+    //     productsCart:(state,action)=>{
           
 
-    if(state.cart.indexOf(action.payload)==-1){
-        state.cart.push(action.payload)
+    // if(state.cart.indexOf(action.payload)==-1){
+    //     state.cart.push(action.payload)
         
-       }
-     else{
-       state.cart.splice(state.cart.indexOf(action.payload) ,1)
-     }  
-        },
+    //    }
+    //  else{
+    //    state.cart.splice(state.cart.indexOf(action.payload) ,1)
+    //  }  
+    //     }
+    
         singleProduct:(state,action)=>{
             state.data =action.payload
             
-        }
+        },
+        Productlike:(state,action)=>{
+            state.like =action.payload
+         
+        },
+        LoginUser:(state,action)=>{
+            state.LoginUser =action.payload
+   
+        },
+        resgistedin:(state,action)=>{
+            state.RegisterUser =action.payload
+   
+        },
 
     }
 
 })
 
 export default productSlice.reducer
-export const { productsLoad,productsLike, productsCart, singleProduct} =productSlice.actions
+export const { productsLoad,productsLike, productsCart, singleProduct,Productlike,LoginUser} =productSlice.actions
