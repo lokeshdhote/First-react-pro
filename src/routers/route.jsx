@@ -22,7 +22,7 @@ const route = () => {
   }, [dispatch]);
 
   const { LoginUser } = useSelector((state) => state.productReducer);
-
+console.log(LoginUser);
  
 
   return (
@@ -31,7 +31,8 @@ const route = () => {
       {/* <Route path="/Register" element={<Register />} /> */}
       <Route path="/UserAth" element={<UserAth/>} />
       {/* <Route path="/login" element={<Login />} /> */}
-      <Route path="/product" element={ <Product /> } />
+      <Route path="/product" element={LoginUser ? <Product/> : <Navigate to="UserAth" />} />
+      <Route path="/product" element={<Product/>} />
       <Route path="/product/:id" element={<Details />} />
       <Route path="/about" element={<About />} />
       <Route path="/wishlist" element={<Wishlist />} />

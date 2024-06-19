@@ -69,7 +69,7 @@ const Details = () => {
               </div>
               <div>
                 {" "}
-                {like.includes(data?._id) ? (
+                {/* {like.includes(data?._id) ? (
                   <>
                     {" "}
                     <i
@@ -89,7 +89,7 @@ const Details = () => {
                       {" "}
                     </i>
                   </>
-                )}
+                )} */}
               </div>
             </div>
           </div>

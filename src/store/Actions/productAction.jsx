@@ -3,7 +3,7 @@
 export {  productsLoad } from "../Reducers/productSlice.jsx";
 
 import { useState } from "react";
-import {  productsLike, productsLoad,productsCart , singleProduct,Productlike,LoginUser, resgistedin} from "../Reducers/productSlice.jsx";
+import {  productsLike, productsLoad,productsCart , singleProduct,Productlike,LoginUser, resgistedin,loggedout} from "../Reducers/productSlice.jsx";
 import axios from "../../util/axios.jsx";
 export const asyncload = () => async (dispatch, getState)=>{
     try {
@@ -75,7 +75,7 @@ export const getProduct = ()=>async(dispatch, getState)=>{
   export const logedUser = ()=>async(dispatch, getState)=>{
     try {
       const {data} = await axios.get("/LoginUser")
-     
+     console.log(data);
   //  dispatch( LoginUser(data))
     
     } catch (error) {
@@ -86,7 +86,7 @@ export const getProduct = ()=>async(dispatch, getState)=>{
   export const logedin = (user)=>async(dispatch, getState)=>{
     try {
       const {data} = await axios.post("/login",user)
-     
+     console.log(data);
    dispatch( LoginUser(data))
     
     } catch (error) {
@@ -99,6 +99,17 @@ export const getProduct = ()=>async(dispatch, getState)=>{
       const {data} = await axios.post("/register",registeruser)
      
    dispatch(resgistedin(data))
+    
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  export const Logout = ()=>async(dispatch, getState)=>{
+    try {
+      const {data} = await axios.get("/logout")
+     
+   dispatch(loggedout(data))
     
     } catch (error) {
       console.log(error);

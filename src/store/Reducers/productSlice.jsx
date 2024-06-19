@@ -50,10 +50,13 @@ export const productSlice = createSlice({
             state.RegisterUser =action.payload
    
         },
+        loggedout:(state,action)=>{
+            state.logout=action.payload
+        }
 
     }
 
 })
 
 export default productSlice.reducer
-export const { productsLoad,productsLike, productsCart, singleProduct,Productlike,LoginUser,  resgistedin} =productSlice.actions
+export const { productsLoad,productsLike, productsCart, singleProduct,Productlike,LoginUser,  resgistedin,loggedout} =productSlice.actions

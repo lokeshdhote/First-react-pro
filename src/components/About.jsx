@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Nav from "./Nav.jsx"
+import { useDispatch } from "react-redux"
+import { Logout } from "../store/Actions/productAction.jsx"
 
 const About = ()=>{
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const log= ()=>{
+        dispatch(Logout())
+        navigate("/UserAth")
+
+    }
  
     return(
         <div className="w-screen min-h-screen bg-emerald-700 overflow-hidden "    >
@@ -34,7 +43,7 @@ const About = ()=>{
 <Link to={"/Wishlist"}>    <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Wishlist</h2></Link>
     <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Help us</h2>
     <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Delete Account</h2>
-    <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Logout</h2>
+    <h2 onClick={log} className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Logout</h2>
 </div>
 
 
