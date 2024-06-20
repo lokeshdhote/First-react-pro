@@ -3,8 +3,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { registered } from '../store/Actions/productAction';
+import { toast } from 'react-toastify';
+import { useLocation, useNavigate } from 'react-router';
 
 const Register = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 const dispatch = useDispatch()
 
     const[username,setusername] = useState("")
@@ -21,10 +26,13 @@ const dispatch = useDispatch()
     e.preventDefault();
     try {
      dispatch(registered({username,email,category,adress,password}))
-      alert('Registration successful');
+     navigate(from, { replace: true });
+
+        
+      toast.success('Registration successful');
       
     } catch (error) {
-      console.error('Registration failed', error);
+      toast.success('Registration failed', error);
     }
   };
 

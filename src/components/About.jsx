@@ -2,13 +2,15 @@ import { Link, useNavigate } from "react-router-dom"
 import Nav from "./Nav.jsx"
 import { useDispatch } from "react-redux"
 import { Logout } from "../store/Actions/productAction.jsx"
+import { toast } from "react-toastify"
 
 const About = ()=>{
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const log= ()=>{
         dispatch(Logout())
-        navigate("/UserAth")
+        navigate("/")
+        toast.success("logout")
 
     }
  
@@ -38,6 +40,8 @@ const About = ()=>{
                 </div>
                 <div className="w-[60%] h-full ">
 <div className="flex flex-col  gap-[2vw] pl-[5vw] pt-[5vw]">
+
+   <Link to={"/createProduct"} ><h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Create A Order</h2></Link> 
    <Link to={"/cart"} ><h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Cart</h2></Link> 
    <Link to={"/order"}> <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Order</h2></Link>
 <Link to={"/Wishlist"}>    <h2 className="text-white  text-2xl cursor-pointer  active:font-[300] active:text-gray-200">Wishlist</h2></Link>

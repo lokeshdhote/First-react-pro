@@ -1,7 +1,14 @@
 
 import { useDispatch, useSelector } from "react-redux"
 import Nav from "./Nav.jsx"
+import { LoginUser } from "../store/Actions/productAction.jsx";
+import { useEffect } from "react";
 const Home = ()=>{
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(LoginUser());
+  }, [dispatch]);
 
 
 return(
