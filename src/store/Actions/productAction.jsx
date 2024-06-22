@@ -3,7 +3,7 @@
 export {  productsLoad } from "../Reducers/productSlice.jsx";
 
 import { useState } from "react";
-import {   userwishlist, productsLoad, singleProduct,Productlike,Login, resgistedin,loggedout, LogedUser ,productCreate } from "../Reducers/productSlice.jsx";
+import {   profile , userwishlist, addCart,removeItemCart, addMoreQunatity,cart , productsLoad, singleProduct,Productlike,Login, resgistedin,loggedout, LogedUser ,productCreate } from "../Reducers/productSlice.jsx";
 import axios from "../../util/axios.jsx";
 
 
@@ -100,6 +100,64 @@ export const getProduct = ()=>async(dispatch, getState)=>{
     try {
       const {data} = await axios.get("/wishlist")
      dispatch(userwishlist(data))
+  
+  
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+  export const addForCart = (id)=>async(dispatch, getState)=>{
+    try {
+      const {data} = await axios.get(`/cart/add/${id}`)
+     dispatch  (addCart(data))
+  
+  
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  
+  export const removeCart = (id)=>async(dispatch, getState)=>{
+    try {
+      const {data} = await axios.get(`/cart/remove/${id}`)
+     dispatch  (removeItemCart(data))
+  
+  
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  export const addmoreCart = (id)=>async(dispatch, getState)=>{
+    try {
+      const {data} = await axios.get(`/cart/addMore/${id}`)
+     dispatch  ( addMoreQunatity(data))
+  
+  
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  export const cartPage = ()=>async(dispatch, getState)=>{
+    try {
+      const {data} = await axios.get("/cart")
+     dispatch  (cart(data))
+  
+  
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  export const Aboutpage = ()=>async(dispatch, getState)=>{
+    try {
+      const {data} = await axios.get("/profile")
+console.log(data);
+     dispatch (profile(data))
   
   
     } catch (error) {

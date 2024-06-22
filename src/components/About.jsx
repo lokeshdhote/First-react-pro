@@ -1,10 +1,13 @@
 import { Link, useNavigate } from "react-router-dom"
 import Nav from "./Nav.jsx"
-import { useDispatch } from "react-redux"
-import { Logout } from "../store/Actions/productAction.jsx"
+import { useDispatch, useSelector } from "react-redux"
+import { Aboutpage, Logout } from "../store/Actions/productAction.jsx"
 import { toast } from "react-toastify"
+import { useEffect } from "react"
 
 const About = ()=>{
+    const {profileData} = useSelector((state) => state.productReducer)
+    console.log(profileData);
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const log= ()=>{
@@ -12,6 +15,9 @@ const About = ()=>{
         navigate("/")
         toast.success("logout")
 
+useEffect(()=>{
+dispatch(Aboutpage())
+},[dispatch])
     }
  
     return(

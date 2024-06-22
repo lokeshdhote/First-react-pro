@@ -41,7 +41,7 @@ useEffect(()=>{
               <h3 className="text-[1.5vw]">₹{item.price}</h3>
               <h4>
                
-                {like?.wishlist.indexOf(item._id) === -1 ? "true" :"false"}
+                {/* {like?.wishlist.indexOf(item._id) === -1 ? "true" :"false"} */}
                 {like?.wishlist.indexOf(item._id) === -1 ? (
                   <i onClick={() => handleLike(item._id)} className="ri-heart-3-fill text-red-500 text-2xl cursor-pointer"></i>
                 ) : (

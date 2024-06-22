@@ -10,29 +10,8 @@ export const productSlice = createSlice({
   reducers: {
     productsLoad: (state, action) => {
       state.product = action.payload;
-      //    state.product.push(action.payload)
+    
     },
-    //     productsLike:(state,action)=>{
-
-    // if(state.like.indexOf(action.payload)==-1){
-    //      state.like.push(action.payload)
-
-    //     }
-    //   else{
-    //     state.like.splice(state.like.indexOf(action.payload) ,1)
-    //   }
-    //     },
-    //     productsCart:(state,action)=>{
-
-    // if(state.cart.indexOf(action.payload)==-1){
-    //     state.cart.push(action.payload)
-
-    //    }
-    //  else{
-    //    state.cart.splice(state.cart.indexOf(action.payload) ,1)
-    //  }
-    //     }
-
     singleProduct: (state, action) => {
       state.data = action.payload;
     },
@@ -42,7 +21,22 @@ export const productSlice = createSlice({
     userwishlist: (state, action) => {
       state.user = action.payload;
     },
-   
+   addCart:(state, action) => {
+    state.cartdata = action.payload;
+  },
+  removeItemCart:(state, action) => {
+    state.cartdata = action.payload;
+  },
+  addMoreQunatity:(state, action) => {
+    state.cartdata = action.payload;
+  },
+  cart:(state, action) => {
+    state.cartdata = action.payload;
+  },
+  profile:(state,action) =>{
+  state.profileData =action.payload
+  },
+
     LogedUserRequest: (state, action) => {
       (state.message = null), (state.error = null),
       state.loading = true
@@ -80,6 +74,7 @@ export const productSlice = createSlice({
 export default productSlice.reducer;
 export const {
   productsLoad,
+  profile,
   productsLike,
   productsCart,
   singleProduct,
@@ -91,4 +86,8 @@ export const {
   productCreate,
   clearErr,clearMsg,LogedUserError,LogedUserRequest,
   userwishlist,
+  cart,
+  removeItemCart,
+  addMoreQunatity,
+  addCart,
 } = productSlice.actions;

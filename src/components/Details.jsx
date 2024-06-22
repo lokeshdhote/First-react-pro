@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import {getSingleProduct,likeProduct} from "../store/Actions/productAction";
+import {addForCart, getSingleProduct,likeProduct} from "../store/Actions/productAction";
 import { useEffect } from "react";
 import Wishlist from "./Wishlist";
 
@@ -21,7 +21,7 @@ const Details = () => {
     dispatch(likeProduct(id))
   };
   const dataCart = (id) => {
-    dispatch(asynccart(id));
+    dispatch(addForCart(id));
   };
 
   return (
@@ -51,8 +51,7 @@ const Details = () => {
                 </h2>
                 <h4 className="text-xl font-[600] ">₹ {data?.price}</h4>
 
-                {data?.categoryGender == "Mens" ||
-                data?.categoryGender == "Womens" ? (
+                {data?.categoryGender == "Mens"||data?.categoryGender == "Womens" ||data?.categoryGender == "Kids" ? (
                   <>
                     <h3 className="text-xl text-zinc-3000">
                       {" "}
@@ -67,7 +66,7 @@ const Details = () => {
               </div>
               <div>
                 {" "}
-                {like?.wishlist.includes(data?._id) ? (
+                {like?.wishlist.indexOf(data?._id) === -1  ? (
                   <>
                     {" "}
                     <i
