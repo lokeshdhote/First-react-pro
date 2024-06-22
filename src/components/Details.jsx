@@ -1,26 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import {
-  asynccart,
-  asynclike,
-  getSingleProduct,
-} from "../store/Actions/productAction";
+import {getSingleProduct,likeProduct} from "../store/Actions/productAction";
 import { useEffect } from "react";
+import Wishlist from "./Wishlist";
 
 const Details = () => {
   const { id } = useParams();
-  const { product } = useSelector((state) => state.productReducer);
+ const dispatch = useDispatch()
+  const {like} = useSelector((state)=> state.productReducer)
 
   const { data } = useSelector((state) => state.productReducer);
-  console.log(data);
+
   
-  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getSingleProduct(id));
   }, [dispatch]);
 
   const dataLike = (id) => {
-    dispatch(asynclike(id));
+    dispatch(likeProduct(id))
   };
   const dataCart = (id) => {
     dispatch(asynccart(id));
@@ -69,7 +67,7 @@ const Details = () => {
               </div>
               <div>
                 {" "}
-                {/* {like.includes(data?._id) ? (
+                {like?.wishlist.includes(data?._id) ? (
                   <>
                     {" "}
                     <i
@@ -89,7 +87,7 @@ const Details = () => {
                       {" "}
                     </i>
                   </>
-                )} */}
+                )}
               </div>
             </div>
           </div>

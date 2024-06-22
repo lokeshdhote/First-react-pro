@@ -3,43 +3,10 @@
 export {  productsLoad } from "../Reducers/productSlice.jsx";
 
 import { useState } from "react";
-import {  productsLike, productsLoad,productsCart , singleProduct,Productlike,Login, resgistedin,loggedout, LogedUser ,productCreate } from "../Reducers/productSlice.jsx";
+import {   userwishlist, productsLoad, singleProduct,Productlike,Login, resgistedin,loggedout, LogedUser ,productCreate } from "../Reducers/productSlice.jsx";
 import axios from "../../util/axios.jsx";
-export const asyncload = () => async (dispatch, getState)=>{
-    try {
-        // const  response = await axios.get("https://fakestoreapi.com/products");
 
-        // dispatch( productsLoad(response.data))
 
-        
-      
-    } catch (error) {
-        console.log(error);
-    }
-
-}
-export const asynclike = (id) => async (dispatch, getState)=>{
-    try {
-      
-
-      dispatch(productsLike(id))
-      
-    } catch (error) {
-        console.log(error);
-    }
-
-}
-export const asynccart = (id) => async (dispatch, getState)=>{
-    try {
-      
-
-      dispatch(productsCart(id))
-      
-    } catch (error) {
-        console.log(error);
-    }
-
-}
 
 export const getProduct = ()=>async(dispatch, getState)=>{
     try {
@@ -64,9 +31,10 @@ export const getProduct = ()=>async(dispatch, getState)=>{
   }
   export const likeProduct = (id)=>async(dispatch, getState)=>{
     try {
+     
       const {data} = await axios.get(`/like/${id}`)
    dispatch( Productlike(data))
-    
+
     } catch (error) {
       console.log(error);
     }
@@ -75,7 +43,7 @@ export const getProduct = ()=>async(dispatch, getState)=>{
   export const asynclogin = (user)=>async(dispatch, getState)=>{
     try {
       const {data} = await axios.post("/login",user)
-     console.log(data);
+   
    dispatch( LogedUser(data))
     
     } catch (error) {
@@ -86,7 +54,7 @@ export const getProduct = ()=>async(dispatch, getState)=>{
   export const LoginUser = ()=>async(dispatch, getState)=>{
     try {
       const {data} = await axios.get("/LoginUser")
-     console.log(data);
+
    dispatch(Login(data))
     
     } catch (error) {
@@ -123,6 +91,17 @@ export const getProduct = ()=>async(dispatch, getState)=>{
      
    dispatch(productCreate(data))
     
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  export const wishlistuser = ()=>async(dispatch, getState)=>{
+    try {
+      const {data} = await axios.get("/wishlist")
+     dispatch(userwishlist(data))
+  
+  
     } catch (error) {
       console.log(error);
     }

@@ -39,6 +39,10 @@ export const productSlice = createSlice({
     Productlike: (state, action) => {
       state.like = action.payload;
     },
+    userwishlist: (state, action) => {
+      state.user = action.payload;
+    },
+   
     LogedUserRequest: (state, action) => {
       (state.message = null), (state.error = null),
       state.loading = true
@@ -85,5 +89,6 @@ export const {
   resgistedin,
   loggedout,
   productCreate,
-  clearErr,clearMsg,LogedUserError,LogedUserRequest
+  clearErr,clearMsg,LogedUserError,LogedUserRequest,
+  userwishlist,
 } = productSlice.actions;

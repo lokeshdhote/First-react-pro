@@ -10,7 +10,7 @@ const Nav = ()=>{
       dispatch(LoginUser())
     },[dispatch])
     const {Login} = useSelector((state)=>state.productReducer)
-  console.log(Login);
+
 
 
     return(
