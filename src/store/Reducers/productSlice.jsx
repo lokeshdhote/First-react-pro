@@ -35,6 +35,7 @@ export const productSlice = createSlice({
   },
   profile:(state,action) =>{
   state.profileData =action.payload
+
   },
 
     LogedUserRequest: (state, action) => {
@@ -68,6 +69,10 @@ export const productSlice = createSlice({
     clearErr: (state, action) => {
       state.error = null;
     },
+    search:(state,action) =>{
+      state.searchData =action.payload
+    
+      },
   },
 });
 
@@ -87,6 +92,7 @@ export const {
   clearErr,clearMsg,LogedUserError,LogedUserRequest,
   userwishlist,
   cart,
+  search,
   removeItemCart,
   addMoreQunatity,
   addCart,

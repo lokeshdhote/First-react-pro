@@ -25,7 +25,7 @@ const CreateProduct = () => {
         e.preventDefault();
         dispatch(createProduct({price,rating,title,brand,description,specification,availability,categoryGender,category,img}))
         navigate("/");
-        toast.success(data)
+        toast.success("product created")
        
         
     };

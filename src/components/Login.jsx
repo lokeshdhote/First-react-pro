@@ -48,8 +48,8 @@ const Login = () => {
             autoComplete="on"
             className="w-60 h-8 rounded pl-5 border-gray-300 outline-none"
             type="email"
-            placeholder="Username"
-            name="username"
+            placeholder="Email"
+            name="email"
             value={email}
             onChange={(e) => setemail(e.target.value)}
           />

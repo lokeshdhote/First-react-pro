@@ -16,6 +16,7 @@ const dispatch = useDispatch()
     const[category,setcategory] = useState("")
     const[adress,setadress] = useState("")
     const[email,setemail] = useState("")
+    const [phoneNumber , setphoneNumber] = useState("")
     const[password,setpassword] = useState("")
    
   const [showPassword, setShowPassword] = useState(false);
@@ -25,7 +26,7 @@ const dispatch = useDispatch()
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     dispatch(registered({username,email,category,adress,password}))
+     dispatch(registered({username,email,category,adress,password,phoneNumber}))
      navigate(from, { replace: true });
 
         
@@ -55,6 +56,15 @@ const dispatch = useDispatch()
         name="email"
         value={email}
         onChange={(e) => setemail(e.target.value)}
+      />
+           <input
+        autoComplete="on"
+        className="w-60 h-8 rounded pl-5 border-gray-300 outline-none"
+        type="Phonenumber"
+        placeholder="Phonenumber"
+        name="phoneNumber"
+        value={phoneNumber}
+        onChange={(e) => setphoneNumber(e.target.value)}
       />
       <input
         autoComplete="on"

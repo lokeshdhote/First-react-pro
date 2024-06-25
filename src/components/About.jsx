@@ -6,19 +6,24 @@ import { toast } from "react-toastify"
 import { useEffect } from "react"
 
 const About = ()=>{
-    const {profileData} = useSelector((state) => state.productReducer)
-    console.log(profileData);
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    
+    useEffect(()=>{
+        dispatch(Aboutpage())
+    },[dispatch])
+    const {profileData} = useSelector((state) => state.productReducer)
+ 
+   
     const log= ()=>{
         dispatch(Logout())
         navigate("/")
         toast.success("logout")
 
-useEffect(()=>{
-dispatch(Aboutpage())
-},[dispatch])
+
+
     }
+
  
     return(
         <div className="w-screen min-h-screen bg-emerald-700 overflow-hidden "    >
@@ -36,11 +41,11 @@ dispatch(Aboutpage())
 </div>
 
 <div className="flex flex-col gap-[1.7vw] items-center  ">
-    <input type="text" placeholder="Name" className="w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw] " />
-    <input type="text"  placeholder="Email" className="w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw] "/>
-    <input type="text" placeholder="phone Number" className="w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw] " />
-    <input type="text" placeholder="category" className="w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw] " />
-    <textarea name="address" id="" placeholder="address" className="w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw]  "></textarea>
+    <input type="text" placeholder="Name" className="pl-4 w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw]  " value={profileData?.username} />
+    <input type="text"  placeholder="Email" className="pl-4 w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw] " value={profileData?.email}/>
+    <input type="text" placeholder="phone Number" className="pl-4 w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw] " value={profileData?.phoneNumber} />
+    <input type="text" placeholder="category" className="pl-4 w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw] " value={profileData?.category}/>
+    <textarea name="address" id="" placeholder="address" className="pl-4 w-[20vw] h-[3vw] rounded outline-none placeholder:pl-[1vw]  " value={profileData?.adress}></textarea>
     <button className=" text-lg px-[2vw] py-[0.5vw] rounded bg-stone-400 active:scale-[0.93] " >Edit</button>
 </div>
                 </div>
